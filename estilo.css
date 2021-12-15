@@ -1,0 +1,44 @@
+@font-face {
+    font-family: "parrafo";
+    src: url("Fuentes/cmunrm.ttf");
+    }
+    @font-face {
+    font-family: "titulo";
+    src: url("Fuentes/cmunbx.ttf");
+    }
+    @font-face {
+    font-family: "vinculo";
+    src: url("Fuentes/cmunbsr.ttf");
+    }
+  .articulo{
+     margin-top: 50px;
+     position: relative 
+  } 
+  
+  nav{
+      margin-left: auto;
+      margin-right: auto;
+      width: 900px}
+  
+  
+  h2 { font-family:"titulo" ; font-size: 25px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 900px}
+  
+  p { font-family:"parrafo" ; 
+      font-size: 20px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 900px}
+  
+  a{
+      font-family:"vinculo" ; 
+      color: #85281d;
+      text-decoration: none;
+    
+  }
+  a:hover, a:focus, a:active {
+    text-decoration: none;
+    color: inherit;
+}  
