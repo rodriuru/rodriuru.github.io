@@ -62,7 +62,14 @@ ol {
   color:#85281d;
   font-size: 20px;
 }
+.ejercicio{
+  background-color:lightcyan;
+  padding:10px;
+  margin:20px;
 
+  display: block;
+  width: 100%;
+}
 
   .tg  {border-collapse:collapse;border-spacing:0;}
   .tg td{border-color:black;border-style:solid;border-width:1px;font-family:Arial, sans-serif;font-size:14px;
