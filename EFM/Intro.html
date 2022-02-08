@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="..\estilo.css">
+    <script>
+        async function cargar(){
+            let response = await fetch("prueba.txt");
+		
+        if(response.status != 200) {
+            throw new Error("Server Error");
+        }
+            
+        // read response stream as text
+        let text_data = await response.text();
+    
+        return text_data;
+        document.getElementById("EstAtom").innerHTML = text_data;
+        }
+        </script>
+    <title>Apuntes de Física</title>
+</head>
+<body onload="cargar()">
+
+    <main>
+        <article class="articulo">
+            <h2 >Introducción</h2>
+          
+            <ol> 
+                <li><a href="#conceptos">Conceptos básicos</a></li>
+                <li><a href="#clasificacion">Clasificación</a></li>
+                <li><a href="PMag.html">Propiedades Magnéticas</a></li>
+                <li><a href="PO.html">Propiedades Ópticas</a></li>
+                <li><a href="PT.html">Propiedades Térmicas</a></li>
+            </ol>
+
+
+            <article id="conceptos" class="capitulo">
+                <h2>Conceptos Básicos</h2>
+                <p>
+                    Para estudiar el comportamiento de un material es necesario conocer características propias como su <b>composición</b>,
+                    <b>estructura</b> y como estas reaccionan frente al entorno. Al hablar de composición se hace referencia a su constitución 
+                    química. Por otro lado, estructura refiere a la distribución espacial que presentan los átomos constituyentes del material. 
+                    Un material con una composición química definida puede comportarse de diferentes formas según como se disponga su estructura. 
+                    Si a un alambre de cobre lo doblamos y desdoblamos de forma repetida, en algún momento se romperá muy fácilmente. 
+                    En este ejemplo solo su estructura interna fue afectada por los esfuerzos de flexión a los que estuvo sometido, 
+                    sin embargo, sus propiedades mecánicas sufrieron un cambio.
+                </p>
+                <p>
+                    Tanto su composición como estructura determinan el comportamiento del material frente a acciones externas, como fuerzas, 
+                    radiación magnetismo, potencial eléctrico, etc.
+                </p>
+                <h3>Estructura atómica</h3>
+                <article id="EstAtom" class="capitulo">
+
+                </article>
+
+
+                <h3>Clasificación de los materiales</h3>
+                <p>La siguiente es una de tantas formas de clasificar a los materiales</p>
+                <ol> 
+                    <li>Metales y aleaciones</li>
+                    <li>Cerámicas, vidrios y vidrios cerámicos</li>
+                    <li>Polímeros</li>
+                    <li>Semiconductores</li>
+                    <li>Materiales compuestos</li>
+                </ol>         
+
+                <p>
+                    Aluminio, magnesio, zinc, hierro, titanio, cobre y níquel son ejemplos de materiales metálicos y aleaciones
+                    que pueden estar compuestas por elementos no metalicos en pequeñas cantidades. En general se presentan como 
+                    buenos conductores eléctricos y térmicos. 
+                </p>
+
+            </article>
+            <hr>
+            <article id="biblio" class="biblio">
+                Askeland, D. , R., Fulay, P. , P., & Wright, W. , J. (2011). Ciencia e ingeniería de materiales Séptima edición. Cengage Learning.
+                William, D. Callister , Jr. (2015). Ciencia e ingeniería de materiales. Reverté
+            </article>
+
+    </article>
+    </main>
+
+</body>
+</html>
