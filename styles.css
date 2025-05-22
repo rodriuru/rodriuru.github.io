@@ -138,32 +138,58 @@ header {
     border: 1.5px solid #e2e8f0;
     border-radius: 18px;
     box-shadow: 0 3px 12px 0 rgba(33,45,61,0.07);
-    padding: 1.3rem 1.1rem 1.5rem 1.1rem;
+    padding: 1rem 1rem 1rem 1rem;
     width: 100%;
     max-width: 520px;
+    height: 500px;
+    min-height: 500px;
+    box-sizing: border-box;
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: flex-start;
+    overflow: hidden; /* Importante: oculta el desborde */
+    position: relative;
 }
 
+/* Título */
 .graphic-block h3 {
     font-size: 1.18rem;
     font-weight: 500;
-    margin-bottom: 1.1rem;
+    margin-bottom: 0.7rem;
     color: #184d90;
     text-align: center;
     letter-spacing: 0.01em;
 }
 
-.graphic-block img {
-    width: 92%;
-    max-width: 440px;
-    border-radius: 10px;
-    border: 1px dashed #b0b7c3;
-    background: #f5f7fa;
-    object-fit: contain;
-    margin-bottom: 0.5rem;
+/* El div que contendrá la gráfica Plotly o imagen */
+.graphic-block > div[id*="chart"],
+.graphic-block img,
+.graphic-block iframe {
+    flex: 1 1 auto;
+    max-height: 400px;         /* Reserva espacio para el slider/título */
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+    min-height: 0;
+    display: block;
+    margin: 0 auto;
+    object-fit: contain;       /* Mantiene relación de aspecto para imágenes */
+    box-sizing: border-box;
+    border-radius: 12px;
 }
+
+/* Slider y valor de tiempo abajo del gráfico */
+.graphic-block .slider-div {
+    width: 100%;
+    margin: 0.3rem 0 0 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+}
+
 
 @media (max-width: 750px) {
     header, #graphics-container, #info-blocks {
@@ -213,4 +239,19 @@ header {
 .info-msg.disappear, .sinnovedades-msg.disappear {
     opacity: 0;
     pointer-events: none;
+}
+/* Animación de entrada para notificaciones*/
+@keyframes fadeGrowIn {
+  from {
+    opacity: 0;
+    transform: scaleY(0.7) translateY(22px);
+  }
+  to {
+    opacity: 1;
+    transform: scaleY(1) translateY(0);
+  }
+}
+
+.info-msg, .sinnovedades-msg, .alerta-msg {
+  animation: fadeGrowIn 1.0s cubic-bezier(.22,.99,.3,1) both;
 }

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Gráfica Interactiva desde CSV</title>
+    <script src="https://cdn.plot.ly/plotly-2.27.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f6f8fb; color: #1a222c; }
+        #container { max-width: 650px; margin: 40px auto; background: #fff; border-radius: 16px; box-shadow: 0 2px 16px #0001; padding: 28px;}
+        #slider-div { margin-top: 36px; margin-bottom: 18px; display: flex; align-items: center; gap: 12px;}
+        #timestamp-value { font-weight: 700; color: #184d90; }
+    </style>
+</head>
+<body>
+<div id="container">
+    <h2>Gráfica Interactiva desde CSV</h2>
+    <div id="chart"></div>
+    <div id="slider-div">
+        <label for="slider">Marca de tiempo:</label>
+        <input type="range" id="slider" min="0" max="0" value="0" step="1">
+        <span id="timestamp-value"></span>
+    </div>
+</div>
+<script>
+    // Cargar CSV con PapaParse
+    Papa.parse('graficas/datos_grafica1.csv', {
+        download: true,
+        header: true,
+        complete: function(results) {
+            const data = results.data;
+            // Elimina filas vacías al final
+            const filtered = data.filter(d => d.datetime && d.registrado && d.pronostico);
+
+            const x = filtered.map(d => d.datetime);
+            const y1 = filtered.map(d => +d.registrado);
+            const y2 = filtered.map(d => +d.pronostico);
+
+            const trace1 = {
+                x: x, y: y1, mode: 'lines+markers', name: 'Registrado',
+                line: { color: 'royalblue', width: 3 }
+            };
+            const trace2 = {
+                x: x, y: y2, mode: 'lines+markers', name: 'Pronóstico',
+                line: { color: 'orange', dash: 'dash', width: 3 }
+            };
+
+            // Línea vertical inicial en el primer punto
+            function makeVLine(xValue) {
+                return {
+                    type: 'line',
+                    x0: xValue,
+                    x1: xValue,
+                    y0: 0,
+                    y1: 1,
+                    yref: 'paper',
+                    line: { color: '#333', width: 2, dash: 'dot' }
+                };
+            }
+
+            let layout = {
+                title: "Pronóstico para las próximas horas | La Granja",
+                xaxis: { title: "Fecha y hora" },
+                yaxis: { title: "Temperatura (°C)" },
+                shapes: [ makeVLine(x[0]) ],
+                legend: { orientation: "h", yanchor: "bottom", y: 1.02, xanchor: "right", x: 1 },
+                margin: { t: 60, r: 22, l: 60, b: 60 }
+            };
+
+            Plotly.newPlot('chart', [trace1, trace2], layout, {responsive:true});
+
+            // Slider
+            const slider = document.getElementById('slider');
+            slider.min = 0;
+            slider.max = x.length - 1;
+            slider.value = 0;
+
+            const timestampValue = document.getElementById('timestamp-value');
+            timestampValue.textContent = x[0];
+
+            slider.addEventListener('input', function() {
+                const idx = Number(this.value);
+                const xVal = x[idx];
+                timestampValue.textContent = xVal;
+                Plotly.relayout('chart', { shapes: [ makeVLine(xVal) ] });
+                // Aquí puedes usar xVal en otras partes del DOM como gustes
+            });
+        }
+    });
+</script>
+</body>
+</html>

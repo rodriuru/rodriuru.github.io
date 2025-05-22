@@ -1,6 +1,13 @@
 <graficas>
+	<grafica>
+        <titulo>Pronóstico para las próximas horas | La Granja</titulo>
+        <archivo>datos_grafica1.csv</archivo>
+        <xaxis>Fecha</xaxis>
+        <yaxis>Temperatura (°C)</yaxis>
+    </grafica>
+  
     <grafica>
-        <titulo>Gráficas</titulo>
+        <titulo>Gráfica Interactiva</titulo>
         <archivo>interactive1.html</archivo> <!-- Cambia a .html -->
     </grafica>
     <grafica>
