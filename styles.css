@@ -207,3 +207,10 @@ header {
         font-size: 0.92rem;
     }
 }
+.info-msg, .sinnovedades-msg {
+    transition: opacity 0.35s;
+}
+.info-msg.disappear, .sinnovedades-msg.disappear {
+    opacity: 0;
+    pointer-events: none;
+}

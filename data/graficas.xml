@@ -1,7 +1,7 @@
 <graficas>
     <grafica>
-        <titulo>Tiempo Pasado y Pronóstico</titulo>
-        <archivo>pronostico.png</archivo>
+        <titulo>Gráficas</titulo>
+        <archivo>interactive1.html</archivo> <!-- Cambia a .html -->
     </grafica>
     <grafica>
         <titulo>Scatter para T menor a 10°C GFS primeras 24 Horas</titulo>
