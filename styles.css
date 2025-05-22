@@ -6,7 +6,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', Arial, sans-serif;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
     background: #f6f8fb;
     color: #1a222c;
     min-height: 100vh;
@@ -18,7 +18,7 @@ header {
     align-items: flex-start;
     justify-content: flex-start;
     margin-top: 2.5rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.2rem;
     width: 100%;
     max-width: 680px;
     margin-left: auto;
@@ -37,12 +37,9 @@ header {
 .logo-img {
     width: 56px;
     height: 56px;
-    border-radius: 0;      /* Sin puntas redondeadas */
-    background: none;      /* Sin fondo especial */
-    border: none;          /* Sin borde */
+    background: #e9eff6;
     object-fit: cover;
-    box-shadow: none;      /* Sin sombra */
-    display: block;
+    box-shadow: 0 2px 8px 0 rgba(24,77,144,0.08);
 }
 
 .logo-titles {
@@ -50,6 +47,7 @@ header {
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
+
 }
 
 .logo-titles h1 {
@@ -67,6 +65,63 @@ header {
     margin-top: 0.1em;
     margin-left: 0.05em;
 }
+
+#info-blocks {
+    width: 100%;
+    max-width: 520px;
+    margin: 0 auto 1.1rem auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+/* Estilos para los diferentes tipos de mensaje */
+/* --- BLOQUE DE ALERTA (ahora con el estilo llamativo) --- */
+.alerta-msg {
+    border-radius: 15px;
+    padding: 1.1em 1.6em 1.1em 2em;
+    font-size: 1.2rem;
+    font-weight: 600;
+    text-align: center;
+    margin: 0.2em 0;
+    background: #fff4f0;            /* rojo suave */
+    color: #a31a1a;                /* rojo texto */
+    border-left: 10px solid #ef5959;
+    box-shadow: 0 3px 14px 0 rgba(239,89,89,0.09);
+    letter-spacing: 0.02em;
+}
+
+/* --- BLOQUE DE INFORMACIÓN (más sobrio) --- */
+.info-msg {
+    border-radius: 8px;
+    padding: 0.7em 0.8em;
+    font-size: 1.08rem;
+    font-weight: 500;
+    margin-bottom: 0.1em;
+    background: #fffde7;          /* amarillo suave */
+    color: #a17903;      
+	border-color: #a17903;/* amarillo texto */
+    border: none;
+    box-shadow: none;
+    text-align: left;
+	border-left: 4px solid #a17903
+}
+
+/* --- BLOQUE SIN NOVEDADES (sin cambios, solo para contexto) --- */
+.sinnovedades-msg {
+    background: #f1fff1;
+    color: #2b7a1b;
+    border-color: #37b66a;
+    border-radius: 8px;
+    padding: 0.7em 0.8em;
+    font-size: 1.1rem;
+    font-weight: 500;
+	text-align: left;
+    margin-bottom: 0.1em;
+    border-left: 4px solid #37b66a;
+}
+
+
 
 #graphics-container {
     display: flex;
@@ -111,18 +166,16 @@ header {
 }
 
 @media (max-width: 750px) {
-    header, #graphics-container {
+    header, #graphics-container, #info-blocks {
         max-width: 97vw;
         width: 97vw;
         padding: 0 0.5rem;
     }
-
     .graphic-block {
         max-width: 98vw;
         width: 98vw;
         padding: 1rem 0.4rem 1.2rem 0.4rem;
     }
-
     .graphic-block img {
         width: 98%;
         max-width: 96vw;

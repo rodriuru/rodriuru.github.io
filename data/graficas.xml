@@ -4,7 +4,11 @@
         <archivo>pronostico.png</archivo>
     </grafica>
     <grafica>
-        <titulo>Pronóstico de Temperatura Máxima</titulo>
-        <archivo>pronostico.png</archivo>
+        <titulo>Scatter para T menor a 10°C GFS primeras 24 Horas</titulo>
+        <archivo>GFS_prim.png</archivo>
+    </grafica>
+	    <grafica>
+        <titulo>Scatter para T menor a 10°C GFS segundas 24 Horas</titulo>
+        <archivo>GFS_seg.png</archivo>
     </grafica>
 </graficas>
