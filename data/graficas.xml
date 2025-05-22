@@ -1,0 +1,10 @@
+<graficas>
+    <grafica>
+        <titulo>Tiempo Pasado y Pronóstico</titulo>
+        <archivo>pronostico.png</archivo>
+    </grafica>
+    <grafica>
+        <titulo>Pronóstico de Temperatura Máxima</titulo>
+        <archivo>pronostico.png</archivo>
+    </grafica>
+</graficas>

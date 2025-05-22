@@ -37,11 +37,12 @@ header {
 .logo-img {
     width: 56px;
     height: 56px;
-    border-radius: 12px;
-    background: #e9eff6;
-    border: 2px solid #184d90;
+    border-radius: 0;      /* Sin puntas redondeadas */
+    background: none;      /* Sin fondo especial */
+    border: none;          /* Sin borde */
     object-fit: cover;
-    box-shadow: 0 2px 8px 0 rgba(24,77,144,0.08);
+    box-shadow: none;      /* Sin sombra */
+    display: block;
 }
 
 .logo-titles {
@@ -52,7 +53,7 @@ header {
 }
 
 .logo-titles h1 {
-    color: #184d90;
+    color: #000000;
     font-size: 2.1rem;
     font-weight: 700;
     letter-spacing: 0.01em;

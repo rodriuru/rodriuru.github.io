@@ -1,0 +1,14 @@
+<mensajes>
+    <mensaje>
+        <categoria>alerta</categoria>
+        <texto>¡Alerta de Heladapara las próximas 48 horas!</texto>
+    </mensaje>
+    <mensaje>
+        <categoria>informacion</categoria>
+        <texto>Se esperan lluvias moderadas el fin de semana.</texto>
+    </mensaje>
+    <mensaje>
+        <categoria>sinnovedades</categoria>
+        <texto>No hay novedades importantes para este periodo.</texto>
+    </mensaje>
+</mensajes>
